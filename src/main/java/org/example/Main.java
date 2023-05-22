@@ -17,13 +17,13 @@ public class Main {
     static OrderDetailsRepository orderDetailsRepository = (OrderDetailsRepository) context.getBean("orderDetailsRepository");
 
     public static void main(String[] args) {
-        createNewOrderDetailWithNewOrder();
+//        createNewOrderDetailWithNewOrder();
 //        listAllOrdersAndOrderDetails();
 //        findById(2);
 //        createNewOrderDetailsWithOrder();
 //        getAllOrdersInCurrentMonth();
-//        findOrderTotalAmountMoreThan(1000);
-        listAllOrderByProductName("Java");
+//        findOrderTotalAmountMoreThan(35000);
+        listAllOrderByProductName("Javaa");
     }
     public static OrdersEntity createNewOrder(){
         OrdersEntity ordersEntity = new OrdersEntity();

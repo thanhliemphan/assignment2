@@ -15,7 +15,7 @@ public interface OrdersRepository extends CrudRepository<OrdersEntity,Integer> {
     @Query(value = "select * from orders where MONTH(orderDate)=MONTH(now()) and YEAR(orderDate)=YEAR(now())", nativeQuery = true)
     List<OrdersEntity> findByCurrentMonthAndYear();
 
-    @Query(value = "select sum(unitprice*quantity) as amount from orders join orderdetails on orders.id=orderdetails.ordersid group by orderdetails.ordersid having amount>?1", nativeQuery = true)
+    @Query(value = "select orders.id,orders.customeraddress,orders.customername,orders.orderdate from orders join orderdetails on orders.id=orderdetails.ordersid group by orderdetails.ordersid having sum(unitprice*quantity)>?1", nativeQuery = true)
     List<OrdersEntity> findTotalAmountMoreThan(double amount);
 
     @Query(value = "select * from orders join orderdetails on orders.id=orderdetails.ordersid where productname=?1",nativeQuery = true)
